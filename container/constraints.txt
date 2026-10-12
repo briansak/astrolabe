@@ -20,7 +20,7 @@ python-dotenv==1.2.4
 rich==15.0.0
 shellingham==1.5.4
 textual==8.2.8
-typer==0.26.8
+typer==0.27.3
 typing-extensions==4.16.0
 typing-inspection==0.4.4
 wcwidth==0.9.2
