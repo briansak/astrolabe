@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Checkout entrypoint. Install logic lives in astrolabe.bootstrap.
+set -euo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$ROOT"
+
+pick=""
+for candidate in python3.14 python3.13 python3.12 python3.11 python3; do
+  if command -v "$candidate" >/dev/null 2>&1; then
+    if "$candidate" -c 'import sys; raise SystemExit(0 if sys.version_info >= (3, 11) else 1)'; then
+      pick="$candidate"
+      break
+    fi
+  fi
+done
+if [[ -z "$pick" ]]; then
+  echo "Python 3.11 or newer is required." >&2
+  exit 1
+fi
+if [[ ! -x .venv/bin/python ]]; then
+  "$pick" -m venv .venv
+fi
+export PYTHONPATH="${ROOT}/src${PYTHONPATH:+:$PYTHONPATH}"
+.venv/bin/python -m astrolabe.bootstrap
+exec .venv/bin/astrolabe "$@"

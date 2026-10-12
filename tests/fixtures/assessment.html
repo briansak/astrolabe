@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Assessment Acme</title>
+<style>
+@page {
+  margin: 18mm;
+  @bottom-center { content: counter(page); font-family: Georgia, Palatino, serif; }
+}
+body {
+  font-family: Georgia, Palatino, serif;
+  margin: 2rem auto;
+  max-width: 40rem;
+  line-height: 1.45;
+  color: #1c1917;
+  background: #fff;
+}
+h1, h2, h3 { font-family: Palatino, Georgia, serif; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border-bottom: 1px solid #d6d3d1; text-align: left; padding: 0.4rem; vertical-align: top; }
+.mono { font-family: ui-monospace, "Courier New", monospace; }
+article.finding { page-break-inside: avoid; margin: 0 0 1.5rem; }
+#sign-off { border: 2px solid #365314; padding: 0.6rem 1rem; }
+</style>
+</head>
+<body>
+<p id="sign-off">Final. Approved by Ada at 2026-10-10T00:00:00Z.</p>
+<h1>Assessment</h1>
+<p>Consultant-confirmed candidate files. This is not a merge decision and it does not waive anything.</p>
+<h2>Header</h2>
+<table>
+<tr><th>Customer</th><td>Acme</td></tr>
+<tr><th>Engagement ID</th><td>acme-2026</td></tr>
+<tr><th>Scope</th><td>Billing service</td></tr>
+<tr><th>Snapshot</th><td class="mono">6dc4e441e69e</td></tr>
+<tr><th>Start</th><td>2026-10-09</td></tr>
+<tr><th>End</th><td>Not set</td></tr>
+<tr><th>Approving consultant</th><td>Ada</td></tr>
+<tr><th>Finalized</th><td>2026-10-10T00:00:00Z</td></tr>
+</table>
+<p>Authorization: SOW-14</p>
+<h2>Summary</h2>
+<p>1 confirmed finding. 1 advisory check and 0 exploratory checks. Advisories checked: pasted advisory text.</p>
+<h2>Findings</h2>
+<article class="finding"><h3 class="mono">app.py</h3><p>CWE-89 Improper Neutralization of Special Elements used in an SQL Command (&#x27;SQL Injection&#x27;)</p><p>Found by: advisory-guided check</p><p>What to look for: Look through app.py for Improper Neutralization of Special Elements used in an SQL Command (&#x27;SQL Injection&#x27;). Confirm the weakness before changing code.</p><p>Consultant explanation: Reviewed the query and confirmed the weakness in this file.</p><p>MITRE mitigations</p><ul><li>For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602. Attackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.</li><li>When the set of acceptable objects, such as filenames or URLs, is limited or known, create a mapping from a set of fixed input values (such as numeric IDs) to the actual filenames or URLs, and reject all other inputs.</li><li>Use an application firewall that can detect attacks against this weakness. It can be beneficial in cases in which the code cannot be fixed (because it is controlled by a third party), as an emergency prevention measure while more comprehensive software assurance measures are applied, or to provide defense in depth.</li></ul><p>1 more mitigation listed in the remediation handoff.</p></article>
+<h2>What was checked</h2>
+<p>Advisory-guided and exploratory investigations are listed separately. They are not combined into one figure.</p>
+<h3>Advisory-guided</h3><table><thead><tr><th>CWE</th><th>Name</th><th>Selection source</th><th>Snapshot</th><th>Investigations</th><th>Runs</th></tr></thead><tbody><tr><td>CWE-89</td><td>Improper Neutralization of Special Elements used in an SQL Command (&#x27;SQL Injection&#x27;)</td><td>Pasted advisory text</td><td class="mono">6dc4e441e69e</td><td>1</td><td>1</td></tr></tbody></table><p>Verdicts in this mode: confirmed 1.</p>
+<h3>Exploratory</h3><p>Exploratory checks identify the affected file far less often than advisory checks and often return files that are not affected.</p><table><thead><tr><th>CWE</th><th>Name</th><th>Selection source</th><th>Snapshot</th><th>Investigations</th><th>Runs</th></tr></thead><tbody><tr><td colspan="6">None.</td></tr></tbody></table><p>Verdicts in this mode: none.</p>
+<h2>Method and limitations</h2>
+<p>Astrolabe asks Antares-1B, through the official CLI, to name files that may be relevant to one CWE. A consultant reads those candidates and confirms the ones that belong in this report. Model output by itself is not a finding.</p><p>In our testing on 34 published vulnerabilities, advisory-guided investigation identified the affected file in roughly 7 of 10 runs, compared with about 1 in 4 without an advisory. Results on this codebase may differ.</p><p>An empty findings list is not evidence that the snapshot has no weakness. The model has no line numbers. Re-running an investigation is recorded and does not increase CWE coverage. A verdict from an older snapshot is omitted here until a consultant re-confirms it.</p>
+<h2>Appendix</h2>
+<table><tr><th>Snapshot SHA-256</th><td class="mono">6dc4e441e69e135bc2aabb08abf464984125eeff62398ad26cbbe4f08060085d</td></tr><tr><th>CWE catalog</th><td>4.20, released 2026-04-30</td></tr><tr><th>Report template</th><td>1</td></tr></table>
+</body>
+</html>

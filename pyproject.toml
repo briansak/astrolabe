@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "astrolabe"
+version = "0.1.0"
+description = "Local, consultant-led code triage with Antares-1B"
+requires-python = ">=3.11"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "src/astrolabe/data/cwe/CWE_NOTICE.txt"]
+dependencies = [
+    "weasyprint>=62",
+]
+
+[project.optional-dependencies]
+inference = ["astrolabe-antares-server==0.1.0"]
+
+[project.scripts]
+astrolabe = "astrolabe.runner:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["astrolabe*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.setuptools.package-data]
+astrolabe = [
+    "static/css/*.css",
+    "static/*.png",
+    "data/*.json",
+    "data/cwe/*",
+    "sandbox/*",
+]

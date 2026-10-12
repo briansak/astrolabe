@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://astrolabe.local/schemas/remediation-handoff.schema.json",
+  "title": "Astrolabe remediation handoff",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["verification_required", "instruction", "engagement_id", "candidates"],
+  "properties": {
+    "verification_required": { "const": true },
+    "instruction": {
+      "type": "string",
+      "minLength": 1
+    },
+    "engagement_id": { "type": "string" },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["file", "cwe", "status", "mode", "mitigations", "what_to_look_for"],
+        "properties": {
+          "file": { "type": "string" },
+          "cwe": { "type": "string" },
+          "status": { "type": "string" },
+          "mode": { "type": "string", "enum": ["advisory", "exploratory"] },
+          "mitigations": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "what_to_look_for": { "type": "string" }
+        }
+      }
+    }
+  }
+}

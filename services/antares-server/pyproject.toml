@@ -1,0 +1,26 @@
+[project]
+name = "astrolabe-antares-server"
+version = "0.1.0"
+description = "Host-side raw completions for the official Antares CLI"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+dependencies = [
+    "astrolabe==0.1.0",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "pydantic>=2.9.0",
+    "torch>=2.4.0",
+    "transformers>=4.46.0",
+]
+
+[project.scripts]
+astrolabe-antares-server = "antares_server.main:main"
+
+[build-system]
+requires = ["setuptools>=75.0.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["antares_server*"]

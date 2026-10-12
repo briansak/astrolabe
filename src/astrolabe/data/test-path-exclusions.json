@@ -1,0 +1,24 @@
+{
+  "enabled": true,
+  "directory_segments": [
+    "test",
+    "tests",
+    "t",
+    "spec",
+    "specs",
+    "fixtures",
+    "__tests__"
+  ],
+  "file_names": [
+    "conftest.py"
+  ],
+  "file_globs": [
+    "*_test.py",
+    "test_*.py",
+    "*_spec.py",
+    "*.spec.js",
+    "*.spec.ts",
+    "*.test.js",
+    "*.test.ts"
+  ]
+}

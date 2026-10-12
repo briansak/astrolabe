@@ -1,0 +1,27 @@
+.DS_Store
+.env
+.env.*
+*.pem
+*.key
+__pycache__/
+.venv/
+*.sock
+build/
+*.egg-info/
+
+# Staged weights and the vendor CLI tree. Neither is redistributed.
+models/
+vendor/
+container/.build/
+
+# Operator advisory cache. Investigations read it; they do not fetch it.
+data/advisories/
+
+# Release build output. scripts/build_release.sh writes this.
+dist/
+
+# Engagement working data, including any ANTARES_DATA_DIR.
+engagements/
+var/
+.antares-data/
+ANTARES_DATA_DIR/
