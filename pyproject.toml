@@ -11,7 +11,7 @@ readme = "README.md"
 license = "Apache-2.0"
 license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "src/astrolabe/data/cwe/CWE_NOTICE.txt"]
 dependencies = [
-    "weasyprint>=62",
+    "weasyprint>=70.0",
 ]
 
 [project.optional-dependencies]
