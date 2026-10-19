@@ -13,7 +13,7 @@ mdurl==0.1.2
 platformdirs==4.12.4
 prompt-toolkit==3.0.53
 pydantic==2.14.0
-pydantic-core==2.50.0
+pydantic-core==2.50.1
 pydantic-settings==2.15.0
 pygments==2.21.0
 python-dotenv==1.2.4
