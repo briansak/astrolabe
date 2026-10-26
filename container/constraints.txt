@@ -10,7 +10,7 @@ linkify-it-py==2.2.0
 markdown-it-py==4.2.0
 mdit-py-plugins==0.6.1
 mdurl==0.1.2
-platformdirs==4.12.4
+platformdirs==4.13.5
 prompt-toolkit==3.0.53
 pydantic==2.14.0
 pydantic-core==2.50.0
